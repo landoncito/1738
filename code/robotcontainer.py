@@ -70,6 +70,11 @@ class RobotContainer:
         self.stick.y().onTrue(GoBackwardCommand(self.my_motor_ss))
         self.stick.y().onFalse(StopCommand(self.my_motor_ss))
 
+        self.stick.rightTrigger().onTrue(GoBackwardCommand(self.my_motor_ss))
+        self.stick.rightTrigger().onFalse(StopCommand(self.my_motor_ss))
+
+        
+
 
     def all_subsystems(self):
         """

@@ -32,6 +32,7 @@ elec_data = {
   
   "my_motor_CAN_ID": 2,
   "my_motor_speed": 0.2,
+  "my_motor_CAN_ID2": 3,
 }
 ELEC = namedtuple("Data", elec_data.keys())(**elec_data)
 
