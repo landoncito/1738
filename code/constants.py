@@ -30,7 +30,7 @@ elec_data = {
   ##       your own code, such as I/O ports or CAN bus IDs.
   ##
   
-  "my_motor_CAN_ID": 11,
+  "my_motor_CAN_ID": 2,
   "my_motor_speed": 0.2,
 }
 ELEC = namedtuple("Data", elec_data.keys())(**elec_data)
