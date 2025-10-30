@@ -12,9 +12,19 @@ import commands2
 import commands2.button
 
 from constants import OP
+
+# Subsystems 
 import subsystems.motor_ss
+import subsystems.motor_ss2
+
+
+# Commands
 from commands.motor_commands import GoForwardCommand, GoBackwardCommand, StopCommand
+from commands.motor_commands2 import GoForwardCommand2, GoBackwardCommand2, StopCommand
+
+
 from wpilib import XboxController
+
 
 
 class RobotContainer:
@@ -64,17 +74,17 @@ class RobotContainer:
         ##
 
         # run the example command when the X button is pressed
-        self.stick.leftTriggeTrigger().onTrue(GoForwardCommand(self.my_motor_ss))
-        self.stick.leftTriggerTrigger().onFalse(StopCommand(self.my_motor_ss))
+        self.stick.leftTrigger().onTrue(GoForwardCommand(self.my_motor_ss))
+        self.stick.leftTrigger().onFalse(StopCommand(self.my_motor_ss))
 
         self.stick.leftBumper().onTrue(GoBackwardCommand(self.my_motor_ss))
         self.stick.leftBumper().onFalse(StopCommand(self.my_motor_ss))
 
-        self.stick.rightTrigger().onTrue(GoForwardCommand(self.my_motor_ss2))
+        self.stick.rightTrigger().onTrue(GoForwardCommand2(self.my_motor_ss2))
         self.stick.rightTrigger().onFalse(StopCommand(self.my_motor_ss))
 
-        self.stick.rightBumperBumper().onTrue(GoBackwardCommand(self.my_motor_ss2))
-        self.stick.rightBumperBumper().onFalse(StopCommand(self.my_motor_ss))
+        self.stick.rightBumper().onTrue(GoBackwardCommand2(self.my_motor_ss2))
+        self.stick.rightBumper().onFalse(StopCommand(self.my_motor_ss))
 
         
 
