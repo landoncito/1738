@@ -175,7 +175,7 @@ class StopCommand(commands2.Command):
         # LowerElevator both use the Elevator subsystem and can't run at the
         # same time, so they must each call addRequirements(self.elevator_ss)
         #
-        self.addRequirements(self.motor_ss)
+        self.addRequirements(self.motor_ss2)
 
     def initialize(self):
         """
@@ -188,7 +188,7 @@ class StopCommand(commands2.Command):
         ##        this command need to do anything to set up?  If so, put that
         ##        code here.)
         ##
-        self.motor_ss.stop()
+        self.motor_ss2.stop()
 
         """
         Performs the main part of any command that needs to happen on an
