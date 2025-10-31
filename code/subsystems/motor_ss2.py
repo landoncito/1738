@@ -15,3 +15,5 @@ class MotorSubsystem2(commands2.Subsystem):
         self.my_motor2.set(-ELEC.my_motor_speed)
     def go_forward2(self):
         self.my_motor2.set(ELEC.my_motor_seed)
+    def stop(self):
+        self.my_motor2.set(0.0)

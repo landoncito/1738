@@ -166,7 +166,7 @@ class StopCommand(commands2.Command):
         ##       (Assign the correct named parameter to a sensibly named
         ##        instance variable.)
         ##
-        self.motor_ss = motor_ss
+        self.motor_ss2 = MotorSubsystem2
 
         # addRequirements() declares that this command needs exclusive use of
         # this subsystem.  If another command that needs this subsystem gets

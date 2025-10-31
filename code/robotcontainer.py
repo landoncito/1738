@@ -55,6 +55,7 @@ class RobotContainer:
         ##       (Use your subsystems, and change the variable name.)
         ##
         self.my_motor_ss = subsystems.motor_ss.MotorSubsystem()
+        self.my_motor_ss2= subsystems.motor_ss2.MotorSubsystem2()
 
         # Configure the button bindings
         self.configureButtonBindings()
@@ -81,10 +82,10 @@ class RobotContainer:
         self.stick.leftBumper().onFalse(StopCommand(self.my_motor_ss))
 
         self.stick.rightTrigger().onTrue(GoForwardCommand2(self.my_motor_ss2))
-        self.stick.rightTrigger().onFalse(StopCommand(self.my_motor_ss))
+        self.stick.rightTrigger().onFalse(StopCommand(self.my_motor_ss2))
 
         self.stick.rightBumper().onTrue(GoBackwardCommand2(self.my_motor_ss2))
-        self.stick.rightBumper().onFalse(StopCommand(self.my_motor_ss))
+        self.stick.rightBumper().onFalse(StopCommand(self.my_motor_ss2))
 
         
 
