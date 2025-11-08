@@ -161,10 +161,7 @@ class StopCommand(commands2.Command):
         """
         Constructor for the command object.  Assigns some instance variables.
         """
-        super().__init__()
-        ## TODO: Change this for your robot!
-        ##       (Assign the correct named parameter to a sensibly named
-        ##        instance variable.)
+       
         ##
         self.motor_ss2 = MotorSubsystem2
 
