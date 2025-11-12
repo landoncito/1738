@@ -19,9 +19,9 @@ class IncrementNumberCommand(commands2.Command):
         """
         Constructor for the command object.  Assigns some instance variables.
         """
-        super().__init__()
+    
         self.smartdashboardss = smart_dashboard_ss
-        self.addRequriements(self.smartdashboardss)
+        self.addRequirements(self.smartdashboardss)
         def initialize(self):
          self.smartdashboardss.increment_number()
          
