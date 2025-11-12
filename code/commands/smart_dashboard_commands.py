@@ -27,5 +27,6 @@ class IncrementNumberCommand(commands2.Command):
          current_value = self.smartdashboardss.get_number()
          wpilib.SmartDashboard.putNumber("My Stored Number", current_value)
          log.info("Increment number command initialized")
-         def isFinished():
+    
+        def isFinished(self):
              return True
