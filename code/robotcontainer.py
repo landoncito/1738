@@ -92,7 +92,7 @@ class RobotContainer:
         self.stick.rightBumper().onTrue(GoBackwardCommand2(self.my_motor_ss2))
         self.stick.rightBumper().onFalse(StopCommand(self.my_motor_ss2))
 
-        self.stick.a().onTrue().onTrue(IncrementNumberCommand(self.smart_dashboard_ss))
+        self.stick.a().onTrue(IncrementNumberCommand(self.smart_dashboard_ss))
 
         
 
