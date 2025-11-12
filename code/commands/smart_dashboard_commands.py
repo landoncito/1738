@@ -22,7 +22,7 @@ class IncrementNumberCommand(commands2.Subsystem):
         """
         self.smartdashboardss = smart_dashboard_ss
         self.addRequriements(self.smartdashboardss)
-        def __init__(self):
+        def initialize(self):
          self.smartdashboardss.increment_number()
          
          current_value = self.smartdashboardss.get_number()
