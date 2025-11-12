@@ -1,6 +1,6 @@
 import logging
 log = logging.Logger('P212-robot')
-
+import wpilib
 from wpilib import DigitalInput
 import commands2
 import phoenix6
@@ -36,3 +36,15 @@ class MotorSubsystem(commands2.Subsystem):
         """
         self.my_motor.set(0.0)
 
+class DisplayEncoderValue(commands2.Command):
+     def __init__(self, motor_ss: MotorSubsystem):
+         super().__init__()
+         self.motor_ss = motor_ss
+         self.addRequirements(self.motor_ss)
+
+     def initialize(self):
+        position = self.motor_ss.get_encoder_position()
+        wpilib.SmartDashboard.putNumber("Second Motor Encoder", position)
+
+     def isFinished(self):
+         return True
