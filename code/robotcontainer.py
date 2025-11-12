@@ -5,6 +5,8 @@
 #
 
 import logging
+
+import subsystems.smart_dashboard_ss
 log = logging.Logger('P212-robot')
 
 import wpilib
@@ -16,11 +18,13 @@ from constants import OP
 # Subsystems 
 import subsystems.motor_ss
 import subsystems.motor_ss2
+import subsystems.smart_dashboard_ss
 
 
 # Commands
 from commands.motor_commands import GoForwardCommand, GoBackwardCommand, StopCommand
 from commands.motor_commands2 import GoForwardCommand2, GoBackwardCommand2, StopCommand
+from commands.smart_dashboard_commands import IncrementNumberCommand
 
 
 from wpilib import XboxController
@@ -55,7 +59,8 @@ class RobotContainer:
         ##       (Use your subsystems, and change the variable name.)
         ##
         self.my_motor_ss = subsystems.motor_ss.MotorSubsystem()
-        self.my_motor_ss2= subsystems.motor_ss2.MotorSubsystem2()
+        self.my_motor_ss2 = subsystems.motor_ss2.MotorSubsystem2()
+        self.smart_dashboard_ss = subsystems.smart_dashboard_ss.SmartDashboardSubsystem()
 
         # Configure the button bindings
         self.configureButtonBindings()
@@ -86,6 +91,8 @@ class RobotContainer:
 
         self.stick.rightBumper().onTrue(GoBackwardCommand2(self.my_motor_ss2))
         self.stick.rightBumper().onFalse(StopCommand(self.my_motor_ss2))
+
+        self.stick.a().onTrue().onTrue(IncrementNumberCommand(self.smart_dashboard_ss))
 
         
 
