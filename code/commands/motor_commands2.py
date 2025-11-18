@@ -3,6 +3,7 @@ log = logging.Logger('P212-robot')
 
 import commands2
 import constants
+import wpilib
 
 ## TODO: Change this for your robot!
 ##       (Change the import line so that it imports your subsystem by its
@@ -133,58 +134,18 @@ class GoBackwardCommand2(commands2.Command):
         ##
 
     def isFinished(self):
-        """
-        Returns a boolean indicating whether the command has completed.
-        """
-        ## TODO: Change this for your robot!
-        ##       (What test determines whether this command has completed?  If
-        ##        you did everything in initialize(), then then command has
-        ##        already completed (and will always have completed), so you
-        ##        can just return True.)
-        ##
-
-        # stop the motor if the sensor value is over 5.0
-        return True
+        return True 
     
 class StopCommand(commands2.Command):
-    ## TODO: Change this for your robot!
-    ##       (Write reasonable documentation for your command.)
-    ##
-    """
-    Make the robot go forward. 
-    """
-    ## TODO: Change this for your robot!
-    ##       (Change the name and class of the constructor's subsystem
-    ##        parameter.)
-    ##
+   
     def __init__(self, motor_ss: MotorSubsystem2) -> None:
-        """
-        Constructor for the command object.  Assigns some instance variables.
-        """
-       
-        ##
+      
         self.motor_ss2 = MotorSubsystem2
 
-        # addRequirements() declares that this command needs exclusive use of
-        # this subsystem.  If another command that needs this subsystem gets
-        # scheduled to run, this command won't be able to run anymore, so it
-        # will get cancelled.  For example, commands such as RaiseElevator and
-        # LowerElevator both use the Elevator subsystem and can't run at the
-        # same time, so they must each call addRequirements(self.elevator_ss)
-        #
         self.addRequirements(self.motor_ss2)
 
     def initialize(self):
-        """
-        Perform any setup to initialize the command, and/or perform any
-        command that can be completed all in one shot.
-        This method runs when the scheduler schedules the command.
-        """
-        ## TODO: Change this for your robot!
-        ##       (Can this command do everything in one shot?  If not, does
-        ##        this command need to do anything to set up?  If so, put that
-        ##        code here.)
-        ##
+        
         self.motor_ss2.stop()
 
         """
@@ -211,3 +172,16 @@ class StopCommand(commands2.Command):
 
         # stop the motor if the sensor value is over 5.0
         return True
+    
+    class DisplayEncoderValue(commands2.Command):
+     def __init__(self, motor_ss: MotorSubsystem2):
+         super().__init__()
+         self.motor_ss = motor_ss
+         self.addRequirements(self.motor_ss)
+
+     def initialize(self):
+        position = self.motor_ss.get_motor_position()
+        wpilib.SmartDashboard.putNumber("Second Motor Encoder", position)
+
+     def isFinished(self):
+         return True

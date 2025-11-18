@@ -24,7 +24,7 @@ import subsystems.smart_dashboard_ss
 # Commands
 from commands.motor_commands import GoForwardCommand, GoBackwardCommand, StopCommand
 from commands.motor_commands2 import GoForwardCommand2, GoBackwardCommand2, StopCommand
-from commands.smart_dashboard_commands import IncrementNumberCommand
+from commands.smart_dashboard_commands import IncrementNumber
 
 
 from wpilib import XboxController
@@ -92,7 +92,7 @@ class RobotContainer:
         self.stick.rightBumper().onTrue(GoBackwardCommand2(self.my_motor_ss2))
         self.stick.rightBumper().onFalse(StopCommand(self.my_motor_ss2))
 
-        self.stick.a().onTrue(IncrementNumberCommand(self.smart_dashboard_ss))
+        self.stick.a().onTrue(IncrementNumber(self.smart_dashboard_ss))
 
         
 

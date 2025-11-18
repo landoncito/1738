@@ -14,7 +14,7 @@ from subsystems.smart_dashboard_ss import SmartDashboardSubsystem
 ##
 
 
-class IncrementNumberCommand(commands2.Command): 
+class IncrementNumber(commands2.Command): 
       def __init__(self, smart_dashboard_ss: SmartDashboardSubsystem) -> None:
         """
         Constructor for the command object.  Assigns some instance variables.
