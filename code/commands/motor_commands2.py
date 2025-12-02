@@ -173,15 +173,15 @@ class StopCommand(commands2.Command):
         # stop the motor if the sensor value is over 5.0
         return True
     
-    class DisplayEncoderValue(commands2.Command):
+class DisplayEnriqueValue(commands2.Command):
      def __init__(self, motor_ss: MotorSubsystem2):
          super().__init__()
          self.motor_ss = motor_ss
          self.addRequirements(self.motor_ss)
 
      def initialize(self):
-        position = self.motor_ss.get_motor_position()
-        wpilib.SmartDashboard.putNumber("Second Motor Encoder", position)
+        position = self.motor_ss.get_booty_position()
+        wpilib.SmartDashboard.putNumber("67 Motor Encoder", position)
 
      def isFinished(self):
          return True

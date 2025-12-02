@@ -17,14 +17,14 @@ class MotorSubsystem2(commands2.Subsystem):
         self.my_motor2.set(ELEC.my_motor_seed)
     def stop(self):
         self.my_motor2.set(0.0)
-    def get_motor_position(self) -> float:
-        rotations = self.my_motor2.get_rotor_position().value
+    def get_booty_position(self) -> float:
+        sixseven= self.my_motor2.get_rotor_position().value
 
 
-        degrees = rotations * 360.0
+        sixsevenseven = sixseven * 360.0
 
 
-        wrapped = degrees % 360.0
+        kirkify = sixsevenseven % 360.0
 
 
-        return wrapped
+        return kirkify

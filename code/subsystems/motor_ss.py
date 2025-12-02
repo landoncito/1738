@@ -43,7 +43,7 @@ class DisplayEncoderValue(commands2.Command):
          self.addRequirements(self.motor_ss)
 
      def initialize(self):
-        position = self.motor_ss.get_encoder_position()
+        position = self.motor_ss.get_rotor_position().value
         wpilib.SmartDashboard.putNumber("Second Motor Encoder", position)
 
      def isFinished(self):
