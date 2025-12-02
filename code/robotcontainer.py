@@ -80,14 +80,14 @@ class RobotContainer:
         ##
 
         # run the example command when the X button is pressed
-        self.stick.leftTrigger().onTrue(GoForwardCommand(self.my_motor_ss))
-        self.stick.leftTrigger().onFalse(StopCommand(self.my_motor_ss))
+        self.stick.x().onTrue(GoForwardCommand(self.my_motor_ss))
+        self.stick.x().onFalse(StopCommand(self.my_motor_ss))
 
         self.stick.leftBumper().onTrue(GoBackwardCommand(self.my_motor_ss))
         self.stick.leftBumper().onFalse(StopCommand(self.my_motor_ss))
 
-        self.stick.rightTrigger().onTrue(GoForwardCommand2(self.my_motor_ss2))
-        self.stick.rightTrigger().onFalse(StopCommand(self.my_motor_ss2))
+        self.stick.y().onTrue(GoForwardCommand2(self.my_motor_ss2))
+        self.stick.y().onFalse(StopCommand(self.my_motor_ss2))
 
         self.stick.rightBumper().onTrue(GoBackwardCommand2(self.my_motor_ss2))
         self.stick.rightBumper().onFalse(StopCommand(self.my_motor_ss2))
